@@ -16,7 +16,9 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-
+require 'rails/all'
+require 'rspec/rails'
+require 'capybara/rspec'
 require 'capybara/rails'
 
 RSpec.configure do |config|
