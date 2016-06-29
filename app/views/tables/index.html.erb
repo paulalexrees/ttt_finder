@@ -1,10 +1,10 @@
 <% if @tables.any? %>
   <% @tables.each do |table| %>
     <h2><%= table.name %></h2>
+    <h2><%= table.postcode %></h2>
   <% end %>
 <% else %>
   <h1>No tables yet</h1>
 <% end %>
 
 <a href='#'>Add a table</a>
-
