@@ -44,3 +44,21 @@ end
 Then(/^they should be on the new table page$/) do
   expect(current_path).to eq "/tables/new"
 end
+
+Then(/^they should see the input fields 'name' and postcode'$/) do
+  expect(page).to have_field "name"
+  expect(page).to have_field "postcode"
+end
+
+When(/^they enter table details and click submit$/) do
+  fill_in :
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^they should be on the tables page$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Then(/^they should see the table they entered$/) do
+  pending # Write code here that turns the phrase above into concrete actions
+end

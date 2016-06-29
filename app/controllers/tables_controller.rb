@@ -4,4 +4,7 @@ class TablesController < ApplicationController
     @tables = Table.all
   end
 
+  def new
+  end
+
 end

@@ -15,3 +15,8 @@ Feature: Add Table
     And they should see 'Add a table'
     When they click 'Add a table'
     Then they should be on the new table page
+    And they should see the input fields 'name' and postcode'
+    When they enter table details and click submit
+    Then they should be on the tables page
+    And they should see the table they entered
+     
