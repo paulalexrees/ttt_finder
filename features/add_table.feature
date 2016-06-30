@@ -1,10 +1,22 @@
 Feature: Add Table
-  In order to have tables for people to find 
+  In order to have tables for people to find
   As a user
   I want to add and manage tables
 
   Scenario: Tables List
-    Given Table 'Paradise Park' with location 'N7 8PF'  has been added
-    When I go to the tables page
-    Then I should see 'Paradise Park'
-    And I should see 'N7 8PF'
+    Given a user visits the website
+    Then they can see a sign up button
+    When they click the sign up button
+    Then they should be on the sign up page
+    When they enter their details correctly and click sign up
+    Then they should be taken back to the homepage
+    And they should see a sign out button
+    And they should see 'No tables yet'
+    And they should see 'Add a table'
+    When they click 'Add a table'
+    Then they should be on the new table page
+    And they should see the input fields 'name' and postcode'
+    When they enter table details and click submit
+    Then they should be on the tables page
+    And they should see the table they entered
+     
