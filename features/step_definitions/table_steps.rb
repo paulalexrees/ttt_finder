@@ -46,19 +46,21 @@ Then(/^they should be on the new table page$/) do
 end
 
 Then(/^they should see the input fields 'name' and postcode'$/) do
-  expect(page).to have_field "name"
-  expect(page).to have_field "postcode"
+  expect(page).to have_field "table[name]"
+  expect(page).to have_field "table[postcode]"
 end
 
 When(/^they enter table details and click submit$/) do
-  fill_in :
-  pending # Write code here that turns the phrase above into concrete actions
+  fill_in :"table[name]", with:"Paradise Park"
+  fill_in :"table[postcode]", with:"N7 8PF"
+  click_button "Create Table"
 end
 
 Then(/^they should be on the tables page$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(current_path).to eq "/tables"
 end
 
 Then(/^they should see the table they entered$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_content "Paradise Park"
+  expect(page).to have_content "N7 8PF"
 end
