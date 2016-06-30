@@ -43,6 +43,7 @@ group :development, :test do
   gem 'cucumber-rails', :require => false  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'database_cleaner'
   gem 'byebug'
+  gem 'gmaps4rails'
 end
 
 group :development do
