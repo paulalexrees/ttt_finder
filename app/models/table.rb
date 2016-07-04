@@ -1,6 +1,6 @@
 class Table < ActiveRecord::Base
 
-  def index
-    @tables = Table.all
-  end
+  geocoded_by :address
+  after_validation :geocode, :if => :address_changed?
+
 end

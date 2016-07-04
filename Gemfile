@@ -44,6 +44,8 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'byebug'
   gem 'gmaps4rails'
+  gem 'geocoder'
+  gem 'pry'
 end
 
 group :development do

@@ -9,6 +9,16 @@
 
 <a href='/tables/new'>Add a table</a>
 
+<%= @hash.to_json %>
+
+
+
+<% @nearby_tables.each do |eachtable| %>
+  <% eachtable.nearbys(10).each do |table| %>
+    <li><%= link_to table.address, table %> (<%= table.distance.round(2) %> miles)</li>
+  <% end %>
+<% end %>
+
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
@@ -18,6 +28,7 @@
   handler.buildMap({provider: {zoom:15}, internal: {id: 'map'} }, function(){
     if(navigator.geolocation)
       navigator.geolocation.getCurrentPosition(displayOnMap);
+  markers = handler.addMarkers(<%=raw @hash.to_json %>);
   });
 
   function displayOnMap(position){
@@ -27,5 +38,6 @@
     });
     handler.map.centerOn(marker);
   }
+
 
 </script>

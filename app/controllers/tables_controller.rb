@@ -2,9 +2,10 @@ class TablesController < ApplicationController
 
   def index
     @tables = Table.all
-    @hash = Gmaps4rails.build_markers(@tables) do |table, marker|
-      marker.lat 51.46
-      marker.lng -0.22
+    @nearby_tables = Table.near("30 Deptford Church Road, Deptford", 10, units: :km)
+    @hash = Gmaps4rails.build_markers(@nearby_tables) do |table, marker|
+      marker.lat table.latitude
+      marker.lng table.longitude
       marker.title table.name
     end
   end
@@ -19,7 +20,7 @@ class TablesController < ApplicationController
   end
 
   def table_params
-    params.require(:table).permit(:name, :postcode)
+    params.require(:table).permit(:name, :address)
   end
 
 end
